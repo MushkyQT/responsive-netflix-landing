@@ -319,7 +319,7 @@ img {
   .mobile-popup::after {
     width: 3em;
     height: 3em;
-    background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif) center center no-repeat;
+    background: url(../img/download-icon.gif) center center no-repeat;
     background-size: 100%;
     content: '';
   }
