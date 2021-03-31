@@ -1,0 +1,361 @@
+/* Custom properties defined on the ':root' pseudo-class. This allows them to
+be applied globally to any HTML element. */
+:root {
+  --primary-color: #e50914; /* Netflix red */
+}
+
+/* Simple CSS reset to assure cross-browser visual fidelity */
+* {
+  box-sizing: border-box; /* Account for border and padding values in element size declaration */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; /* Text will render better on black bg (Webkit) */
+  -moz-osx-font-smoothing: grayscale; /* ^ (FF on OSX) */
+  background: black;
+  color: #999;
+}
+
+ul {
+  list-style: none; /* Get rid of ugly bullets */
+}
+
+h1, h2, h3, h4 {
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none; /* Remove underlines */
+}
+
+p {
+  margin: 0.5rem 0; /* Set base top/bottom margin using root em */
+}
+
+img {
+  width: 100%; /* Any image will take up 100% of its container, easier to control size */
+}
+
+.showcase {
+  width: 100%;
+  position: relative; /* Allow position: absolute children */
+  background: url("../img/background.jpg") no-repeat center center/cover;
+  border-bottom: 8px solid #222;
+}
+
+.showcase::after {
+  content: ''; /* No content as this will be a filter */
+  position: absolute; /* Position filter absolute relative to .showcase */
+  z-index: 1; /* Set z-index to be under text elements */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* Shadow top & left, bottom & right */
+  box-shadow: inset 0px 0px 60px 10px #000000;
+}
+
+.showcase-top {
+  position: relative; /* Allow position: absolute for logo & btn */
+  height: 90px;
+  margin: auto;
+  max-width: 1840px;
+  z-index: 2; /* Above .showcase::after layer */
+}
+
+.showcase-top img {
+  width: 210px;
+  position: absolute; /* Position inside closest positioned relative (.showcase-top) */
+  top: 50%;
+  transform: translate(0, -50%); /* Position accounting for actual size of logo */
+}
+
+.showcase-top a {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-20%, -50%);
+}
+
+.showcase-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 9rem;
+  padding-bottom: 9rem;
+  z-index: 2; /* Above .showcase::after layer */
+}
+
+.showcase-content h1 {
+  font-weight: 700;
+  font-size: 3.9rem;
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+  max-width: 720px;
+}
+
+.showcase-content h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+
+.showcase-content p {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.showcase-cta {
+  display: flex;
+  max-width: 960px;
+  width: 100%;
+  justify-content: center;
+}
+
+.showcase-cta input {
+  outline: none;
+  border: none;
+  width: 50%;
+  padding-left: 10px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.showcase-cta btn-xl {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.jumbotrons h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.jumbotrons .container {
+  border-bottom: 8px solid #222;
+}
+
+.jumbotrons h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.jumbo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.jumbo-item-text {
+  width: 55%;
+  padding-right: 3rem;
+}
+
+.jumbo-item > img {
+  width: 45%;
+}
+
+.mobile-popup {
+  position: absolute;
+  display: flex;
+  border: 2px solid #222;
+  border-radius: 10px;
+  background: black;
+  left: 10%;
+  bottom: 14%;
+  width: 30%;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  min-width: 15rem;
+}
+
+.mobile-popup::after {
+  content: '';
+  height: 3rem;
+  width: 3rem;
+  display: block;
+  background-size: 100%;
+  background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif) center center no-repeat;
+}
+
+.mobile-popup-image {
+  width: 3.5rem;
+  margin-right: 20px;
+}
+
+.mobile-popup-text {
+  width: 60%;
+}
+
+#text-0 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding-bottom: 2px;
+}
+
+#text-1 {
+  color: royalblue;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 860px) {
+
+  .showcase-top img {
+    width: 120px;
+  }
+
+  .showcase-content {
+    margin: 0;
+    padding: 50px 5%;
+  }
+
+  .showcase-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .showcase-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .showcase-cta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showcase-cta input {
+    height: 40px;
+    width: 100%;
+    border-radius: 2px;
+    margin-bottom: 15px;
+  }
+
+  .showcase-cta .btn {
+    border-radius: 2px;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  .jumbotrons h1 {
+    font-size: 1.6rem;
+  }
+
+  .jumbotrons h2 {
+    font-size: 1.1rem;
+  }
+
+  .jumbo-item {
+    flex-direction: column;
+    padding: 50px 5%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .jumbo-item img {
+    max-width: 100%;
+    width: initial;
+  }
+
+  .jumbo-item-text {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  #jumbo-2 .jumbo-item-text {
+    order: 0;
+  }
+
+  #jumbo-2 img {
+    order: 1;
+  }
+
+  .mobile-popup {
+    left: initial;
+    padding: 0.25em 0.65em;
+    display: flex;
+  }
+
+  .mobile-popup-image {
+    margin: 0;
+  }
+
+  .mobile-popup-text {
+    width: initial;
+  }
+
+  .mobile-popup-image img {
+    height: 3em;
+    float: left;
+  }
+
+  #text-0 {
+    font-size: 0.9em;
+    float: left;
+  }
+
+  #text-1 {
+    font-size: 0.75em;
+    float: left;
+  }
+
+  .mobile-popup::after {
+    width: 3em;
+    height: 3em;
+    background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif) center center no-repeat;
+    background-size: 100%;
+    content: '';
+  }
+
+}
+
+/* Utils */
+.btn {
+  display: inline-block; /* Inline but sizeable */
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-rounded {
+  border-radius: 5px;
+}
+
+.btn-lg {
+  font-size: 1rem;
+  padding: 0.8rem 1.3rem;
+  text-transform: uppercase;
+}
+
+.btn-xl {
+  font-size: 1.65rem;
+  padding: 1.1rem 1.8rem;
+}
