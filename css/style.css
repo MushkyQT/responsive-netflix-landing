@@ -171,6 +171,11 @@ img {
   width: 45%;
 }
 
+#jumbo-2 .jumbo-item-text {
+  padding-right: 0;
+  padding-left: 3rem;
+}
+
 .mobile-popup {
   position: absolute;
   display: flex;
@@ -319,7 +324,6 @@ footer .container {
 }
 
 
-
 /* Mobile rules */
 @media only screen and (max-width: 860px) {
 
@@ -386,6 +390,7 @@ footer .container {
 
   #jumbo-2 .jumbo-item-text {
     order: 0;
+    padding: 0;
   }
 
   #jumbo-2 img {
